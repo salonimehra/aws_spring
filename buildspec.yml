@@ -12,7 +12,7 @@ phases:
   post_build:
     commands:
     - echo Build completed on `date`
-    - mvn install
+    - mvn package
     - mv target/cts-spring-boot-app-exe.jar
 artifacts:
   files:
