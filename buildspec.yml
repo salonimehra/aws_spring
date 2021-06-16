@@ -12,9 +12,8 @@ phases:
   post_build:
     commands:
     - echo Build completed on `date`
-    - mvn package
-    - mv target/cts-spring-boot-app-exe.jar
+    - mvn clean package
 artifacts:
   files:
-  - cts-spring-boot-app-exe.jar
-  - .ebextensions/**/*
+  - target/cts-spring-boot-app-exe.jar
+  discard-paths: yes
