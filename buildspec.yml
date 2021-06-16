@@ -1,14 +1,20 @@
-version:0.2
+version: 0.2
 phases:
-	build:
-		commands:
-			- echo Entered the build phase...
-			- mvn clean package
-	post_build:
-		commands:
-			- echo Build completed Successfully
-
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+    - echo In the pre_build phase...
+  build:
+    commands:
+    - echo Build started on `date`
+  post_build:
+    commands:
+    - echo Build completed on `date`
+    - mvn package
+    - mv target/cts-spring-boot-app-exe.jar
 artifacts:
-	files:
-		- target/cts-spring-boot-app-exe.jar
-	discard-paths: yes
+  files:
+  - cts-spring-boot-app-exe.jar
+  - .ebextensions/**/*
